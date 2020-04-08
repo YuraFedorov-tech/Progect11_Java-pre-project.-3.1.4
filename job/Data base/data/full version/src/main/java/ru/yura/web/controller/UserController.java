@@ -20,13 +20,18 @@ public class UserController {
     }
 
 
-    @GetMapping(value = "admin/findUser/{name}")
+    @GetMapping(value = "admin/findUserByName/{name}")
     public User findUserByName(@PathVariable String name) {
         System.out.println(" @PostMapping(value = \"admin/finduser\")");
         User user = userService.findModelByName(name);
         return user;
     }
-
+    @GetMapping(value = "admin/findUserById/{id}")
+    public User findUserById(@PathVariable Long id) {
+        System.out.println(" @PostMapping(value = \"admin/findUserById\")");
+        User user = userService.findById(id);
+        return user;
+    }
     @GetMapping(value = "admin/admin")
     public List<User> getAllUsers() {
         List<User> users = userService.findAll();

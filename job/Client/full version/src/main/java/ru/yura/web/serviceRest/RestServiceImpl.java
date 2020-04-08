@@ -26,11 +26,6 @@ public class RestServiceImpl implements RestService {
         this.serverUrl = "http://localhost:8080/";
     }
 
-    @Override
-    public User findModelByName(String name) {
-        User user = restTemplate.getForObject(serverUrl+"admin/findUser/"+name, User.class);
-        return user;
-    }
 
 
     @Override
@@ -72,18 +67,24 @@ public class RestServiceImpl implements RestService {
         return user;
     }
 
-
-
-
-
-
-
-
-
     @Override
     public User findById(Long id) {
-        return null;
+        User user = restTemplate.getForObject(serverUrl+"admin/findUserById/"+id, User.class);
+        return user;
     }
+    @Override
+    public User findModelByName(String name) {
+        User user = restTemplate.getForObject(serverUrl+"admin/findUserByName/"+name, User.class);
+        return user;
+    }
+
+
+
+
+
+
+
+
 
 
     @Override

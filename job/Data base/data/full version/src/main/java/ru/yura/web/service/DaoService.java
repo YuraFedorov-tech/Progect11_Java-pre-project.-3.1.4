@@ -19,4 +19,5 @@ public interface DaoService<T> {
     T update(T model);
 
     T findModelByName(String name);
+
 }

@@ -41,17 +41,17 @@ public class UserServiceImpl implements UserService {
     public User update(User model, Long[] ids) {
         return restService.update(model,ids);
     }
-
-
-
-
-
-
-
     @Override
     public User findById(Long id) {
-        return null;
+        return restService.findById(id);
     }
+
+
+
+
+
+
+
 
     @Override
     public void drop() {

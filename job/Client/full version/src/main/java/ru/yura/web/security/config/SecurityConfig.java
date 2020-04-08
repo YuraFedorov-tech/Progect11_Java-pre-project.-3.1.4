@@ -22,12 +22,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/hello/**").permitAll()
-                .antMatchers("/admin/**").hasAuthority("ADMIN")
-                .antMatchers("/user/**").authenticated()
+//                .antMatchers("/admin/**").hasAuthority("ADMIN")
+//                .antMatchers("/user/**").authenticated()
+                .antMatchers("/admin/**").permitAll()
+                .antMatchers("/user/**").permitAll()
                 .and()
                 .formLogin()
                 .usernameParameter("email")
-                .successHandler(new MySimpleUrlAuthenticationSuccessHandler())
+  //              .successHandler(new MySimpleUrlAuthenticationSuccessHandler())
                 .permitAll();
         http.csrf().disable();
     }
