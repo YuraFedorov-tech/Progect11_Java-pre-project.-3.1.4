@@ -1,8 +1,8 @@
-package ru.yura.web.service;
+package ru.yura.web.serviceRest;
 
 import java.util.List;
 
-public interface DaoService<T> {
+public interface DaoServiceRest<T> {
     T findModelByName(String name);
     List<T> findAll();
     T delete(T model);

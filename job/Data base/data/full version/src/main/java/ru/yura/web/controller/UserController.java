@@ -5,6 +5,7 @@ import ru.yura.web.model.User;
 import ru.yura.web.service.UserService;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -20,23 +21,33 @@ public class UserController {
     }
 
 
-    @GetMapping(value = "checkUser")
-    public User seeUssdfer() {
-        System.out.println("  @GetMapping(value = \"checkUser\")  SERVER");
-        User user=userService.findAll().get(0);
-       // Gson gson=new Gson();
-        System.out.println(user.getEmail()+user.getId());
+    @GetMapping(value = "admin/findUser/{name}")
+    public User findUserByName(@PathVariable String name , HttpServletRequest request) {
+        System.out.println(" @PostMapping(value = \"admin/finduser\")");
+        User user=userService.findModelByName(name);
+        return user;
+    }
+    @GetMapping(value = "admin/admin")
+    public List<User> getAllUsers() {
+        List<User> users= userService.findAll();
+        return users;
+    }
+    @PostMapping(value = "admin/delete")
+    public User deleteUser(@RequestBody User user ) {
+        user.setRoles(new ArrayList<>());
+        userService.delete(user);
         return user;
     }
 
-    @GetMapping(value = "admin/admin")
-    public List<User> getAllUsers() {
-        // modelMap.addAttribute("user", authentication.getPrincipal());
-        // modelMap.addAttribute("user", new User());
-        List<User> users= userService.findAll();
-        System.out.println("@GetMapping(value = \"admin/admin\")       Server");
-        return users;
-    }
+
+
+
+
+
+
+
+
+
 
 
     @PostMapping(value = "admin/add")
@@ -55,13 +66,7 @@ public class UserController {
 //        return user;
 //    }
 //
-    @PostMapping(value = "admin/delete")
-    public User deleteUser(User user , HttpServletRequest request) {
-        System.out.println(" @PostMapping(value = \"admin/delete\")");
-       User user2=userService.findById(user.getId());
-        userService.delete(user2);
-        return user;
-    }
+
 
     @PostMapping(value = "admin/update")
     public User postUpdateUser(User user, @RequestParam(required = false, name = "role_id") Long[] ids) {
@@ -69,4 +74,6 @@ public class UserController {
         User userUpdate= userService.update(user, ids);
         return userUpdate;
     }
+
+
 }

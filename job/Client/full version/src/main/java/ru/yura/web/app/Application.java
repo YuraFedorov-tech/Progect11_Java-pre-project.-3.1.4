@@ -41,21 +41,14 @@ public class Application {
     public static void main(String[] args) {
         ApplicationContext ctx = SpringApplication.run(Application.class, args);
         UserService userService = ctx.getBean(UserService.class);
-        //  UserControllerOld userControllerOld = ctx.getBean(UserControllerOld.class);
-
-        System.out.println("skjdhk;ajsfc");
-        User user = userService.findModelByNames("2@2.ru");
-        System.out.println(user.getEmail() + user.getId());
+        User user = userService.findModelByName("2@2.ru");
+        System.out.println(user.getId() + " public static void main(String[] args) { " + user);
 
         List<User> users = userService.findAll();
-        System.out.println(users);
-        User userDelete = new User().setId(620L).setFirstName("555555555555");
-        User userDelete2 = userService.delete(userDelete);
-        System.out.println("userDelete2=" + userDelete2);
-//        users = userService.findAll();
-//        System.out.println(users);
-//        String f=  userControllerOld.getAdminPanel(new ModelMap());
+        System.out.println("users -" + users);
 
+        User user3 = userService.delete(userService.findModelByName("sryt"));
+        System.out.println("user3 -" + user3);
 
     }
 

@@ -1,5 +1,6 @@
 package ru.yura.web.controller;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -31,7 +32,7 @@ public class UserControllerOld {
     final private
     UserService userService;
 
-    public UserControllerOld(UserService userService) {
+    public UserControllerOld(@Qualifier("userServiceImpl") UserService userService) {
         this.userService = userService;
     }
 

@@ -10,6 +10,5 @@ import ru.yura.web.model.User;
  *
  */
 public interface UserService extends DaoService<User> {
-
-    User findModelByNames(String s);
+void print();
 }
