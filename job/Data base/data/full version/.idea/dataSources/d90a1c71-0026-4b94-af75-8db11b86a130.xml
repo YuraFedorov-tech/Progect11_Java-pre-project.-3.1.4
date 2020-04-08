@@ -12,7 +12,7 @@
     <database id="3" parent="1" name="db_example">
       <ObjectId>16393</ObjectId>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>9262</IntrospectionStateNumber>
+      <IntrospectionStateNumber>9380</IntrospectionStateNumber>
       <Current>1</Current>
     </database>
     <database id="4" parent="1" name="postgres">
@@ -69,7 +69,7 @@
       <Comment>standard public schema</Comment>
       <StateNumber>276</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>9263</IntrospectionStateNumber>
+      <IntrospectionStateNumber>9381</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <access-method id="17" parent="3" name="heap">
@@ -144,43 +144,43 @@
       <DataType>bigint</DataType>
     </sequence>
     <table id="26" parent="16" name="roles">
-      <ObjectId>30253</ObjectId>
+      <ObjectId>30281</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>9260</StateNumber>
+      <StateNumber>9342</StateNumber>
     </table>
     <table id="27" parent="16" name="user_role">
-      <ObjectId>30258</ObjectId>
+      <ObjectId>30286</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>9260</StateNumber>
+      <StateNumber>9342</StateNumber>
     </table>
     <table id="28" parent="16" name="users">
-      <ObjectId>30261</ObjectId>
+      <ObjectId>30289</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>9261</StateNumber>
+      <StateNumber>9343</StateNumber>
     </table>
     <column id="29" parent="26" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>9255</StateNumber>
+      <StateNumber>9337</StateNumber>
       <TypeId>20</TypeId>
     </column>
     <column id="30" parent="26" name="role">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>9255</StateNumber>
+      <StateNumber>9337</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <index id="31" parent="26" name="roles_pkey">
-      <ObjectId>30256</ObjectId>
-      <StateNumber>9255</StateNumber>
+      <ObjectId>30284</ObjectId>
+      <StateNumber>9337</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
     <key id="32" parent="26" name="roles_pkey">
-      <ObjectId>30257</ObjectId>
-      <StateNumber>9255</StateNumber>
+      <ObjectId>30285</ObjectId>
+      <StateNumber>9337</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>roles_pkey</UnderlyingIndexName>
@@ -189,31 +189,31 @@
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>9256</StateNumber>
+      <StateNumber>9338</StateNumber>
       <TypeId>20</TypeId>
     </column>
     <column id="34" parent="27" name="role_id">
       <Position>2</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>9256</StateNumber>
+      <StateNumber>9338</StateNumber>
       <TypeId>20</TypeId>
     </column>
     <foreign-key id="35" parent="27" name="fkj345gk1bovqvfame88rcx7yyx">
-      <ObjectId>30276</ObjectId>
-      <StateNumber>9261</StateNumber>
+      <ObjectId>30304</ObjectId>
+      <StateNumber>9343</StateNumber>
       <ColNames>user_id</ColNames>
-      <RefTableId>30261</RefTableId>
+      <RefTableId>30289</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>users</RefTableName>
       <RefKeyName>users_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
     <foreign-key id="36" parent="27" name="fkt7e7djp752sqn6w22i6ocqy6q">
-      <ObjectId>30271</ObjectId>
-      <StateNumber>9260</StateNumber>
+      <ObjectId>30299</ObjectId>
+      <StateNumber>9342</StateNumber>
       <ColNames>role_id</ColNames>
-      <RefTableId>30253</RefTableId>
+      <RefTableId>30281</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>roles</RefTableName>
       <RefKeyName>roles_pkey</RefKeyName>
@@ -223,62 +223,62 @@
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>9257</StateNumber>
+      <StateNumber>9339</StateNumber>
       <TypeId>20</TypeId>
     </column>
     <column id="38" parent="28" name="age">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
-      <StateNumber>9257</StateNumber>
+      <StateNumber>9339</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="39" parent="28" name="email">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>9257</StateNumber>
+      <StateNumber>9339</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="40" parent="28" name="first_name">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>9257</StateNumber>
+      <StateNumber>9339</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="41" parent="28" name="last_name">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>9257</StateNumber>
+      <StateNumber>9339</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="42" parent="28" name="password">
       <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>9257</StateNumber>
+      <StateNumber>9339</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <index id="43" parent="28" name="users_pkey">
-      <ObjectId>30267</ObjectId>
-      <StateNumber>9257</StateNumber>
+      <ObjectId>30295</ObjectId>
+      <StateNumber>9339</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
     <index id="44" parent="28" name="uk_6dotkott2kjsp8vw4d0m25fb7">
-      <ObjectId>30269</ObjectId>
-      <StateNumber>9259</StateNumber>
+      <ObjectId>30297</ObjectId>
+      <StateNumber>9341</StateNumber>
       <ColNames>email</ColNames>
       <Unique>1</Unique>
     </index>
     <key id="45" parent="28" name="users_pkey">
-      <ObjectId>30268</ObjectId>
-      <StateNumber>9257</StateNumber>
+      <ObjectId>30296</ObjectId>
+      <StateNumber>9339</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>users_pkey</UnderlyingIndexName>
     </key>
     <key id="46" parent="28" name="uk_6dotkott2kjsp8vw4d0m25fb7">
-      <ObjectId>30270</ObjectId>
-      <StateNumber>9259</StateNumber>
+      <ObjectId>30298</ObjectId>
+      <StateNumber>9341</StateNumber>
       <ColNames>email</ColNames>
       <UnderlyingIndexName>uk_6dotkott2kjsp8vw4d0m25fb7</UnderlyingIndexName>
     </key>

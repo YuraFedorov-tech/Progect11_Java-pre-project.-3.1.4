@@ -16,7 +16,7 @@ public interface DaoService<T> {
 
     void create();
 
-    T update(T model, Long[] ids);
+    T update(T model);
 
     T findModelByName(String name);
 }

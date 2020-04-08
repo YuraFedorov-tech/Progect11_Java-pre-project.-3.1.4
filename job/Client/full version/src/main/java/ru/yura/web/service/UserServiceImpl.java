@@ -32,21 +32,21 @@ public class UserServiceImpl implements UserService {
         return restService.delete(model);
     }
 
-
-
-
-
-
-
     @Override
-    public void add(User model, Long ids) {
-
+    public User add(User model, Long ids) {
+       return restService.add(model,ids);
     }
 
     @Override
     public User update(User model, Long[] ids) {
-        return null;
+        return restService.update(model,ids);
     }
+
+
+
+
+
+
 
     @Override
     public User findById(Long id) {

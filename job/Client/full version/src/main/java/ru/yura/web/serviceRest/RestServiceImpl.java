@@ -7,11 +7,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import ru.yura.web.model.Role;
 import ru.yura.web.model.User;
 import ru.yura.web.service.UserService;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class RestServiceImpl implements RestService {
@@ -50,19 +50,33 @@ public class RestServiceImpl implements RestService {
         return user2;
     }
 
-
-
-
-
-
-
-
+    @Override
+    public User add(User model, Long ids) {
+        HttpEntity<User> requestBody = new HttpEntity<>(model);
+        ResponseEntity<User> responseEntity
+                = restTemplate.exchange(serverUrl + "admin/add/"+Long.toString(ids), HttpMethod.POST, requestBody, User.class);
+        User user=responseEntity.getBody();
+        return user;
+    }
 
     @Override
     public User update(User model, Long[] ids) {
+
+        for(Long id:ids){
+            model.addRoles(new Role().setId(id));
+        }
         HttpEntity<User> requestBody = new HttpEntity<>(model);
-        return model;
+        ResponseEntity<User> responseEntity
+                = restTemplate.exchange(serverUrl + "admin/update/", HttpMethod.POST, requestBody, User.class);
+        User user=responseEntity.getBody();
+        return user;
     }
+
+
+
+
+
+
 
 
 
@@ -82,10 +96,7 @@ public class RestServiceImpl implements RestService {
 
     }
 
-    @Override
-    public void add(User model, Long ids) {
 
-    }
 
 
 }
