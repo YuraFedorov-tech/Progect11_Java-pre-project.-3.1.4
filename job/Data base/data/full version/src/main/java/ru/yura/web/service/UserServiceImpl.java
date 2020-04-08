@@ -32,25 +32,25 @@ public class UserServiceImpl implements UserService {
     @Override
     public void add(User model, Long id) {
         userDao.add(model);
-        Role role=roleDao.findById(id);
+        Role role = roleDao.findById(id);
         model.addRoles(role);
     }
 
     @Transactional
     @Override
     public User update(User model) {
-        Long []ids=findIds(model);
+        Long[] ids = findIds(model);
         User user = userDao.update(model);
         insideRoles(user, ids);
         return user;
     }
 
     private Long[] findIds(User model) {
-        List<Role> roles=model.getRoles();
+        List<Role> roles = model.getRoles();
         model.setRoles(new ArrayList<>());
-        Long []ids=new Long[roles.size()];
-        for(int i=0;i<roles.size();i++){
-            ids[i]=roles.get(i).getId();
+        Long[] ids = new Long[roles.size()];
+        for (int i = 0; i < roles.size(); i++) {
+            ids[i] = roles.get(i).getId();
         }
         return ids;
     }
@@ -65,14 +65,7 @@ public class UserServiceImpl implements UserService {
     }
 
 
-    private void insidsafsafsdgfadsgadfgdfgeRoles(User model, Long[] ids) {
-        List<Role> newRoles = new ArrayList<>();
-        for (Long id : ids) {
-            Role role = roleDao.findById(id);
-            newRoles.add(role);
-        }
-        model.setRoles(newRoles);
-    }
+
 
     @Transactional(readOnly = true)
     @Override

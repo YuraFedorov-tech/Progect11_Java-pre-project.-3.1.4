@@ -24,9 +24,8 @@ public class UserController {
 
 
     @PostMapping(value = "admin/add")
-    public User addUser(User user, @RequestParam(required = false, name = "role_id") Long id, HttpServletRequest req) {
-        userService.add(user, id);
-        return user;
+    public User addUser(User user, @RequestParam(required = false, name = "role_id") Long id) {
+        return userService.add(user, id);
     }
 
     @PostMapping(value = "admin/delete")

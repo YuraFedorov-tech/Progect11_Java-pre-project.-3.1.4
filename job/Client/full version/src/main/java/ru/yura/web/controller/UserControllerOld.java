@@ -47,7 +47,8 @@ public class UserControllerOld {
 
     @GetMapping(value = "user")
     public String seeUser(ModelMap modelMap, Authentication authentication) {
-        modelMap.addAttribute("user", authentication.getPrincipal());
+       // modelMap.addAttribute("user", authentication.getPrincipal());
+        modelMap.addAttribute("user", new User());
         return "seeUser";
     }
 }
