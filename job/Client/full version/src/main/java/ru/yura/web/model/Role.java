@@ -17,8 +17,8 @@ import java.util.Objects;
 @Accessors(chain = true)
 @Data
 @NoArgsConstructor
+public class Role implements GrantedAuthority {
 
-public class Role  {
 
 
     private Long id;
@@ -26,7 +26,7 @@ public class Role  {
 
     private String role;
 
-
+    @Override
     public String toString() {
         return "Role{" +
                 "role='" + role + '\'' +
@@ -50,5 +50,8 @@ public class Role  {
         return Objects.hash(role);
     }
 
-
+    @Override
+    public String getAuthority() {
+        return role;
+    }
 }

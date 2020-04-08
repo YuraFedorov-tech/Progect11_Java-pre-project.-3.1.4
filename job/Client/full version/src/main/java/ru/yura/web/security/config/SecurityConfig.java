@@ -21,15 +21,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/hello/**").permitAll()
-//                .antMatchers("/admin/**").hasAuthority("ADMIN")
+                .antMatchers("/auth/**").permitAll()
+                .antMatchers("/admin/**").hasAuthority("ADMIN")
 //                .antMatchers("/user/**").authenticated()
-                .antMatchers("/admin/**").permitAll()
+//                .antMatchers("/admin/**").permitAll()
                 .antMatchers("/user/**").permitAll()
                 .and()
                 .formLogin()
                 .usernameParameter("email")
-  //              .successHandler(new MySimpleUrlAuthenticationSuccessHandler())
+               .successHandler(new MySimpleUrlAuthenticationSuccessHandler())
                 .permitAll();
         http.csrf().disable();
     }

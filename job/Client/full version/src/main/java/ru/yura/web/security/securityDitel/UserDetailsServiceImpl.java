@@ -18,22 +18,22 @@ import ru.yura.web.model.User;
 import ru.yura.web.service.UserService;
 
 @Service
-public class UserDetailsServiceImpl  // implements UserDetailsService
+public class UserDetailsServiceImpl implements UserDetailsService
 {
-//    private final UserService userService;
-//
-//    public UserDetailsServiceImpl(UserService userService) {
-//
-//        this.userService = userService;
-//    }
-//
-//    @Override
-//    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-//        User user = userService.findModelByName(email);
-//        if (user.getEmail().equals(email)) {
-//            return user;
-//        }
-//        return null;
-//        // return user==null? null:user;
-//    }
+    private final UserService userService;
+
+    public UserDetailsServiceImpl(UserService userService) {
+
+        this.userService = userService;
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        User user = userService.findModelByName(email);
+        if (user.getEmail().equals(email)) {
+             return user;
+        }
+        return null;
+        // return user==null? null:user;
+    }
 }

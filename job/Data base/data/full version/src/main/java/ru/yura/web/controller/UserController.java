@@ -20,9 +20,9 @@ public class UserController {
     }
 
 
-    @GetMapping(value = "admin/findUserByName/{name}")
+    @GetMapping(value = "auth/findUserByName/{name}")
     public User findUserByName(@PathVariable String name) {
-        System.out.println(" @PostMapping(value = \"admin/finduser\")");
+        System.out.println(" @PostMapping(value = \"admin/findUserByName\")");
         User user = userService.findModelByName(name);
         return user;
     }

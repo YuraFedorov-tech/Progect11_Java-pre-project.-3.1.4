@@ -21,23 +21,21 @@ import ru.yura.web.app.handler.MySimpleUrlAuthenticationSuccessHandler;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 
-    @Autowired
-    public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {
-      //  log.info("configureGlobalSecurity");
-        auth.inMemoryAuthentication()
-                .withUser("admin").password("admin").roles("ADMIN");
+    @Override
+    public void configure(AuthenticationManagerBuilder auth) throws Exception {
+      //  auth.userDetailsService(userDetailsServiceImpl);
+        auth.inMemoryAuthentication();
     }
-
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/hello/**").permitAll()
-//                .antMatchers("/admin/**").hasAuthority("ADMIN")
-//                .antMatchers("/user/**").authenticated()
-                .antMatchers("/admin/**").permitAll()
-                .antMatchers("/user/**").permitAll()
+                .antMatchers("/auth/**").permitAll()
+                .antMatchers("/admin/**").hasAuthority("ADMIN")
+                .antMatchers("/user/**").authenticated()
+//                .antMatchers("/admin/**").permitAll()
+//                .antMatchers("/user/**").permitAll()
                 .and()
                 .formLogin()
                 .usernameParameter("email")

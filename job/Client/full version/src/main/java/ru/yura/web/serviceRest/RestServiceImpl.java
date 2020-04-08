@@ -74,7 +74,7 @@ public class RestServiceImpl implements RestService {
     }
     @Override
     public User findModelByName(String name) {
-        User user = restTemplate.getForObject(serverUrl+"admin/findUserByName/"+name, User.class);
+        User user = restTemplate.getForObject(serverUrl+"auth/findUserByName/"+name, User.class);
         return user;
     }
 
