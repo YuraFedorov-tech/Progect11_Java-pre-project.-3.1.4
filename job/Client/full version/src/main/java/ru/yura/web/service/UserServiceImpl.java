@@ -44,10 +44,14 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User delete(User model) {
-        HttpHeaders headers = new HttpHeaders();
-        headers.setAccept(Arrays.asList(new MediaType[] { MediaType.APPLICATION_JSON }));
-        headers.setContentType(MediaType.APPLICATION_JSON);
-        HttpEntity<User> requestBody = new HttpEntity<>(model,headers);
+        HttpEntity<User> requestBody = new HttpEntity<>(model);
+        ResponseEntity<Employee> result
+                = restTemplate.postForEntity(URL_CREATE_EMPLOYEE, requestBody, Employee.class);
+
+
+
+
+
         User user = restTemplate.postForObject(serverUrl + "admin/delete", requestBody, User.class);
         return user;
     }
