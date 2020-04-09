@@ -10,5 +10,5 @@ import ru.yura.web.model.User;
  *
  */
 public interface UserService extends DaoService<User> {
-void print();
+
 }

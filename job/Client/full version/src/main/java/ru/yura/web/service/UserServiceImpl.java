@@ -45,26 +45,11 @@ public class UserServiceImpl implements UserService {
     public User findById(Long id) {
         return restService.findById(id);
     }
-
-
-
-
-
-
-
-
     @Override
     public void drop() {
-
     }
-
     @Override
     public void create() {
-
-    }
-
-    @Override
-    public void print() {
 
     }
 }

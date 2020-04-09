@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 import ru.yura.web.model.User;
 import ru.yura.web.service.UserService;
 
-import javax.servlet.http.HttpServletRequest;
-
 @RestController
 @RequestMapping("/")
 public class UserController {
@@ -37,7 +35,6 @@ public class UserController {
 
     @PostMapping(value = "admin/update")
     public User postUpdateUser(User user, @RequestParam(required = false, name = "role_id") Long[] ids) {
-        User userUpdate= userService.update(user, ids);
-        return userUpdate;
+        return userService.update(user, ids);
     }
 }

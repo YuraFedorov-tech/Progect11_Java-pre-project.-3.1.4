@@ -9,7 +9,6 @@ package ru.yura.web.security.securityDitel;
  */
 
 
-
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -18,8 +17,7 @@ import ru.yura.web.model.User;
 import ru.yura.web.service.UserService;
 
 @Service
-public class UserDetailsServiceImpl implements UserDetailsService
-{
+public class UserDetailsServiceImpl implements UserDetailsService {
     private final UserService userService;
 
     public UserDetailsServiceImpl(UserService userService) {
@@ -30,10 +28,6 @@ public class UserDetailsServiceImpl implements UserDetailsService
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         User user = userService.findModelByName(email);
-        if (user.getEmail().equals(email)) {
-             return user;
-        }
-        return null;
-        // return user==null? null:user;
+        return user == null ? null : user;
     }
 }
