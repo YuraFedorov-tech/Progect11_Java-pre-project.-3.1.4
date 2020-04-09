@@ -1,40 +1,43 @@
 package ru.yura.web.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-import ru.yura.web.model.User;
+import org.springframework.security.core.Authentication;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import ru.yura.web.service.UserService;
+import ru.yura.web.serviceRest.RestServiceImpl;
 
-@RestController
-@RequestMapping("/")
+/*
+ *
+ *@Data 04.04.2020
+ *@autor Fedorov Yuri
+ *@project spring_security
+ *
+ */
+
+@Controller
 public class UserController {
 
+    final
+    RestServiceImpl restService;
 
-    final private
-    UserService userService;
-
-    public UserController(@Qualifier("userServiceImpl") UserService userService) {
-        this.userService = userService;
+    public UserController(RestServiceImpl restService) {
+        this.restService = restService;
     }
 
 
-    @PostMapping(value = "admin/add")
-    public User addUser(User user, @RequestParam(required = false, name = "role_id") Long id) {
-        return userService.add(user, id);
+    @GetMapping(value = "admin/admin")
+    public String getAdminPanel(ModelMap modelMap, Authentication authentication) {
+        modelMap.addAttribute("user", authentication.getPrincipal());
+        modelMap.addAttribute("users", restService.findAll());
+        return "crud";
     }
 
-    @PostMapping(value = "admin/delete")
-    public User deleteUser(@RequestParam(required = false, name = "idDelete") Long id) {
-        User user = userService.findById(id);
-        userService.delete(user);
-        return user;
-    }
-
-    @PostMapping(value = "admin/update")
-    public User postUpdateUser(User user, @RequestParam(required = false, name = "role_id") Long[] ids) {
-        return userService.update(user, ids);
+    @GetMapping(value = "user")
+    public String seeUser(ModelMap modelMap, Authentication authentication) {
+        modelMap.addAttribute("user", authentication.getPrincipal());
+        return "seeUser";
     }
 }
