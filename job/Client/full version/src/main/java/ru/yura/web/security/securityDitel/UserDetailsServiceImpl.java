@@ -14,20 +14,22 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import ru.yura.web.model.User;
-import ru.yura.web.service.UserService;
+import ru.yura.web.serviceRest.RestServiceImpl;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
-    private final UserService userService;
 
-    public UserDetailsServiceImpl(UserService userService) {
 
-        this.userService = userService;
+    final
+    RestServiceImpl restService;
+
+    public UserDetailsServiceImpl(RestServiceImpl restService) {
+        this.restService = restService;
     }
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        User user = userService.findModelByName(email);
+        User user = restService.findModelByName(email);
         return user == null ? null : user;
     }
 }

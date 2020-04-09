@@ -20,7 +20,7 @@ public class UserController {
     }
 
 
-    @GetMapping(value = "auth/findUserByName/{name}")
+    @GetMapping(value = "admin/findUserByName/{name}")
     public User findUserByName(@PathVariable String name) {
         User user = userService.findModelByName(name);
         return user;

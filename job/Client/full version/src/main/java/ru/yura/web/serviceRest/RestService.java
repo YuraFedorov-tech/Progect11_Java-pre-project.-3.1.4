@@ -1,7 +1,6 @@
 package ru.yura.web.serviceRest;
 
 import ru.yura.web.model.User;
-import ru.yura.web.service.DaoService;
 
 /*
  *

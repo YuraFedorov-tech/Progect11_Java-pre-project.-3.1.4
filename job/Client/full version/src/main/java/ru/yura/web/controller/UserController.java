@@ -6,7 +6,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
-import ru.yura.web.service.UserService;
+import ru.yura.web.app.config.ConfigProperties;
 import ru.yura.web.serviceRest.RestServiceImpl;
 
 /*
@@ -19,6 +19,7 @@ import ru.yura.web.serviceRest.RestServiceImpl;
 
 @Controller
 public class UserController {
+
 
     final
     RestServiceImpl restService;
