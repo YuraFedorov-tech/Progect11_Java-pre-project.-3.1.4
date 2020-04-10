@@ -27,9 +27,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         User user = userService.findModelByName(email);
-        if (user.getEmail().equals(email)) {
-            return user;
-        }
-        return null;
+        return user == null ? null : user;
     }
 }

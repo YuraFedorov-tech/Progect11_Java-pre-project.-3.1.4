@@ -51,7 +51,8 @@ public class RestServiceImpl implements RestService {
     public User add(User model, Long ids) {
         HttpEntity<User> requestBody = new HttpEntity<>(model);
         ResponseEntity<User> responseEntity
-                = restTemplate.exchange(serverUrl + configProp.getConfigValue("add") + Long.toString(ids), HttpMethod.POST, requestBody, User.class);
+                = restTemplate.exchange(serverUrl + configProp.getConfigValue("add") + Long.toString(ids),
+                HttpMethod.POST, requestBody, User.class);
         return responseEntity.getBody();
     }
 
